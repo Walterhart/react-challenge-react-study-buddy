@@ -12,6 +12,8 @@ export default function app() {
               pedantically as possible, preferably starting your response with
               the phrase "um, actually..."`,
 	})
+	
+	const [isFlipped, setIsFlipped] = React.useState(false)// keep track of flip state
 
 /* Challenge: 
 
@@ -26,6 +28,7 @@ export default function app() {
         3. The same pattern should be repeated for any subsequent clicks, so that the user can 
            continue flipping the card back and forth as many times as they want. 
 */
+	const toggleFlip = () =>(setIsFlipped(prevFlipState=>!prevFlipState))
 
 	return (
 		<div>
@@ -36,7 +39,7 @@ export default function app() {
 
 			{/*-------Edit the div below!------------*/}
 
-			<div className="flash-card">
+			<div className= {`flash-card ${isFlipped && "flipped"}`} onClick={toggleFlip}>
 			
             {/*-------Edit the div above!------------*/}
 
